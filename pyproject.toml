@@ -1,0 +1,82 @@
+[build-system]
+requires = ["setuptools>=68.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+
+[project]
+name = "inkscript"
+version = "0.1.0"
+description = "InkScript — an image format where drawings are stored as readable code (.inks)"
+readme = "README.md"
+license = { file = "LICENSE" }
+requires-python = ">=3.9"
+
+authors = [
+  { name = "Sourasish Das", email = "serverlabdev@proton.me" }
+]
+
+keywords = [
+  "graphics",
+  "image-format",
+  "dsl",
+  "vector",
+  "drawing",
+  "inkscript"
+]
+
+classifiers = [
+  "Development Status :: 3 - Alpha",
+  "Intended Audience :: Developers",
+  "Intended Audience :: Artists",
+  "License :: Other/Proprietary License",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3.9",
+  "Programming Language :: Python :: 3.10",
+  "Programming Language :: Python :: 3.11",
+  "Operating System :: OS Independent"
+]
+
+dependencies = [
+  "Pillow>=10.0"
+]
+
+
+[project.urls]
+Homepage = "https://github.com/server-lab/inkscript"
+Repository = "https://github.com/server-lab/inkscript"
+Issues = "https://github.com/server-lab/inkscript/issues"
+Specification = "https://github.com/server-lab/inkscript/blob/main/SPEC.md"
+
+
+# ---------------------------------
+# CLI entry points
+# ---------------------------------
+[project.scripts]
+inks-render = "tools.inks_render:main"
+inks-validate = "tools.inks_validate:main"
+inks-fmt = "tools.inks_fmt:main"
+inkpaint = "editor.inkpaint:main"
+
+
+# ---------------------------------
+# setuptools configuration
+# ---------------------------------
+[tool.setuptools]
+packages = [
+  "inks",
+  "tools",
+  "editor"
+]
+include-package-data = true
+
+
+[tool.setuptools.package-data]
+editor = ["assets/*"]
+
+
+# ---------------------------------
+# Optional dev tooling
+# ---------------------------------
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-ra"
