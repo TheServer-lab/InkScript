@@ -1,0 +1,5 @@
+# Core image rendering
+Pillow>=10.0
+
+# Optional (dev / tooling)
+pytest>=8.0
